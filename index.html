@@ -12,7 +12,6 @@
   --gold: #b8860b;
   --gold-bright: #d4a017;
   --gold-pale: #f5e9c5;
-  --gold-dim: #8a6508;
   --green-dark: #1e4d35;
   --green: #2d6a4f;
   --green-light: #e4f2ea;
@@ -30,41 +29,46 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',sans-serif;background:var(--parchment);color:var(--ink);min-height:100vh;padding-bottom:60px}
 
-/* ===== HEADER ===== */
+/* TOP BAR */
+#top-bar{background:#fff;border-bottom:2px solid var(--border);padding:8px 20px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+#top-bar .tb-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+#top-bar select{border:1px solid var(--border);border-radius:6px;padding:5px 10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--ink);background:var(--parchment);cursor:pointer;outline:none}
+#top-bar select:focus{border-color:var(--gold)}
+#pdf-btn{font-size:11px;color:#fff;background:var(--green);border:1px solid var(--green-dark);border-radius:4px;padding:4px 12px;cursor:pointer;margin-left:auto;font-weight:600;letter-spacing:.03em}
+#pdf-btn:hover{background:var(--green-dark)}
+.saved-badge{font-size:11px;color:var(--green);background:var(--green-light);border:1px solid #b0d8c0;border-radius:20px;padding:3px 10px;display:none}
+.saved-badge.show{display:inline-block}
+
+/* HEADER */
 header{background:var(--ink);border-bottom:3px solid var(--gold)}
 .hdr-main{display:flex;align-items:center;gap:24px;padding:20px 32px;flex-wrap:wrap}
 .hdr-logos{display:flex;align-items:center;gap:0;flex-shrink:0}
 .logo-unit{display:flex;flex-direction:column;align-items:center;gap:5px;padding:0 18px}
-.logo-unit img{height:50px;width:auto;object-fit:contain;display:block}
-.logo-unit .role-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.logo-unit img{height:50px;width:auto;object-fit:contain}
+.role-pill{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;white-space:nowrap}
 .role-dae{background:#2a1800;color:#d4a017;border:1px solid #5a3a00}
 .role-wlec{background:#0d2a18;color:#5ecf90;border:1px solid #1a5a38}
 .logo-sep{width:1px;background:rgba(212,200,154,.25);align-self:stretch;margin:4px 0}
-.hdr-center{flex:1;text-align:center;min-width:220px}
-.hdr-center h1{font-family:'Amiri',serif;font-size:27px;color:var(--gold-pale);line-height:1.2;letter-spacing:.01em}
+.hdr-center{flex:1;text-align:center;min-width:200px}
+.hdr-center h1{font-family:'Amiri',serif;font-size:27px;color:var(--gold-pale);line-height:1.2}
 .hdr-center .sub{font-size:11.5px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-top:5px}
 .hdr-meta{text-align:right;font-size:12px;color:#bfaa80;line-height:1.85;flex-shrink:0}
 .hdr-meta strong{color:var(--gold-pale)}
-
-.partner-strip{background:linear-gradient(90deg,#0d2200 0%,#1a3010 50%,#1a1800 100%);border-top:1px solid rgba(184,134,11,.25);padding:9px 32px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:#90b898;letter-spacing:.02em}
+.partner-strip{background:linear-gradient(90deg,#0d2200,#1a3010 50%,#1a1800);border-top:1px solid rgba(184,134,11,.25);padding:9px 32px;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:#90b898;letter-spacing:.02em}
 .partner-strip strong{color:var(--gold-pale)}
-.pdot{color:var(--gold);font-size:15px;line-height:1}
+.pdot{color:var(--gold);font-size:15px}
 
-/* ===== STATS ===== */
+/* STATS */
 .stats-row{display:flex;background:#fff;border-bottom:2px solid var(--border);overflow-x:auto}
 .stat{flex:1;min-width:110px;padding:13px 16px;border-right:1px solid var(--border);text-align:center}
 .stat:last-child{border-right:none}
 .stat .n{font-family:'Amiri',serif;font-size:30px;font-weight:700;line-height:1}
 .stat .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
-.s-open .n{color:var(--amber)}
-.s-done .n{color:var(--green)}
-.s-tbd .n{color:var(--blue)}
-.s-total .n{color:var(--ink)}
+.s-open .n{color:var(--amber)}.s-done .n{color:var(--green)}.s-tbd .n{color:var(--blue)}.s-total .n{color:var(--ink)}
 
-/* ===== MAIN LAYOUT ===== */
 .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 0}
 
-/* ===== ORG CARDS ===== */
+/* ORG CARDS */
 .org-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px}
 .org-card{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px 20px;box-shadow:var(--card-shadow);display:flex;flex-direction:column;gap:12px}
 .oc-head{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid var(--border-light)}
@@ -77,15 +81,15 @@ header{background:var(--ink);border-bottom:3px solid var(--gold)}
 .oc-link{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--blue);text-decoration:none;margin-top:2px}
 .oc-link:hover{color:var(--gold)}
 
-/* ===== DECISIONS ===== */
+/* DECISIONS */
 .decisions{background:#fff;border:1px solid var(--border);border-radius:8px;padding:18px 22px;margin-bottom:20px;box-shadow:var(--card-shadow)}
-.decisions h2{font-family:'Amiri',serif;font-size:18px;color:var(--gold);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.decisions h2{font-family:'Amiri',serif;font-size:18px;color:var(--gold);margin-bottom:14px}
 .dec-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 .dec-card{background:var(--gold-pale);border:1px solid var(--border);border-radius:7px;padding:11px 14px}
 .dec-card b{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
 .dec-card p{font-size:12.5px;line-height:1.5;color:var(--ink)}
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 .sec{background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:16px;overflow:hidden;box-shadow:var(--card-shadow)}
 .sec-hdr{display:flex;align-items:center;gap:11px;padding:13px 18px;background:var(--ink);cursor:pointer;user-select:none}
 .sec-num{font-family:'Amiri',serif;font-size:18px;color:var(--gold);min-width:28px;flex-shrink:0}
@@ -95,13 +99,11 @@ header{background:var(--ink);border-bottom:3px solid var(--gold)}
 .tag-wlec{background:#0d2a18;color:#5ecf90;border:1px solid #1a5a38}
 .tag-jnt{background:#141a2a;color:#88aad0;border:1px solid #2a3a5a}
 .sec-badge{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:700;background:var(--gold);color:var(--ink);flex-shrink:0}
-.chev{color:var(--gold);font-size:13px;flex-shrink:0;transition:transform .2s}
-
+.chev{color:var(--gold);font-size:13px;flex-shrink:0}
 .sec-body.collapsed{display:none}
-
 .col-hdr{display:grid;grid-template-columns:26px 1fr 148px 138px 100px 44px;gap:10px;padding:7px 18px;background:var(--gold-pale);border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:700}
 
-/* ===== TASK ROW ===== */
+/* TASKS */
 .tlist{padding:2px 0}
 .trow{display:grid;grid-template-columns:26px 1fr 148px 138px 100px 44px;align-items:center;gap:10px;padding:9px 18px;border-bottom:1px solid var(--border-light);transition:background .12s}
 .trow:last-child{border-bottom:none}
@@ -111,7 +113,6 @@ header{background:var(--ink);border-bottom:3px solid var(--gold)}
 .chkbox{width:20px;height:20px;border:2px solid var(--border);border-radius:4px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff;transition:all .15s}
 .chkbox.on{background:var(--green);border-color:var(--green)}
 .chkbox.on::after{content:'✓';color:#fff;font-size:12px;font-weight:700}
-
 .ttxt{font-size:13px;line-height:1.4;color:var(--ink)}
 .ttxt.strike{text-decoration:line-through;color:var(--muted)}
 .ttxt input{width:100%;border:none;background:transparent;font:inherit;color:inherit;outline:none}
@@ -119,18 +120,16 @@ header{background:var(--ink);border-bottom:3px solid var(--gold)}
 
 select{font-family:'DM Sans',sans-serif;font-size:12px;border:1px solid var(--border);border-radius:4px;padding:4px 6px;background:var(--parchment);color:var(--ink);width:100%;cursor:pointer;outline:none}
 select:focus{border-color:var(--gold)}
-
 .sbadge{display:inline-block;font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600;white-space:nowrap}
 .sb-open{background:var(--amber-light);color:var(--amber)}
 .sb-done{background:var(--green-light);color:var(--green)}
 .sb-blocked{background:var(--red-light);color:var(--red)}
 .sb-tbd{background:var(--blue-light);color:var(--blue)}
-
 .cbtn{background:none;border:1px solid var(--border);border-radius:4px;padding:4px 7px;cursor:pointer;font-size:13px;color:var(--muted);transition:all .15s;white-space:nowrap}
 .cbtn:hover{border-color:var(--gold);color:var(--gold)}
 .cbtn.hc{color:var(--green);border-color:var(--green)}
 
-/* ===== COMMENT PANEL ===== */
+/* COMMENT PANEL */
 .cpanel{padding:12px 18px 16px 54px;background:#fffef5;border-top:1px dashed var(--border);display:none}
 .cpanel.open{display:block}
 .cpanel h4{font-size:10.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:9px}
@@ -145,7 +144,7 @@ select:focus{border-color:var(--gold)}
 .cadd button{background:var(--gold);color:var(--ink);border:none;border-radius:4px;padding:5px 13px;font-weight:700;font-size:12.5px;cursor:pointer;white-space:nowrap}
 .cadd button:hover{background:var(--gold-bright)}
 
-/* ===== ADD TASK ===== */
+/* ADD TASK */
 .addrow{padding:7px 18px 12px;display:flex;gap:7px;border-top:1px dashed var(--border)}
 .addrow input{flex:1;border:1px solid var(--border);border-radius:4px;padding:5px 10px;font-family:'DM Sans',sans-serif;font-size:12.5px;outline:none;background:var(--parchment)}
 .addrow input:focus{border-color:var(--gold)}
@@ -163,9 +162,62 @@ footer a{color:var(--gold);text-decoration:none}
   .hdr-main{justify-content:center;text-align:center}
   .hdr-meta{text-align:center}
 }
+
+/* PRINT / PDF */
+@media print {
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+  #top-bar,.addrow,.cpanel,.cbtn,.saving-ring{display:none !important}
+  body{padding:0;background:#fff;font-size:11px}
+  header{border-bottom:3px solid #b8860b}
+  .hdr-main{padding:12px 20px}
+  .sec-body.collapsed{display:block !important}
+  .sec{break-inside:avoid;margin-bottom:10px;page-break-inside:avoid}
+  .sec-hdr{padding:8px 14px}
+  .trow{padding:6px 14px;border-bottom:1px solid #ede8d8}
+  .trow select{display:none}
+  .col-hdr{padding:5px 14px}
+  .wrap{padding:12px 16px 0;max-width:100%}
+  .decisions{padding:12px 16px;margin-bottom:12px}
+  .dec-grid{grid-template-columns:repeat(3,1fr);gap:8px}
+  .stats-row{border-bottom:2px solid #ddd0a8}
+  .stat{padding:8px 12px}
+  .partner-strip{padding:6px 20px;font-size:11px}
+  .org-grid{grid-template-columns:1fr 1fr}
+  footer{padding:10px;font-size:10px}
+  .trow{grid-template-columns:26px 1fr 148px 105px}
+  .trow>*:nth-child(5),.trow>*:nth-child(6){display:none}
+  .col-hdr{grid-template-columns:26px 1fr 148px 105px}
+  .col-hdr>*:nth-child(5),.col-hdr>*:nth-child(6){display:none}
+  .ttxt input{pointer-events:none}
+  .chkbox{border:2px solid #ddd0a8}
+  .chkbox.on{background:#2d6a4f !important;border-color:#2d6a4f !important}
+  select{border:none;background:transparent;font-size:11px;-webkit-appearance:none;padding:0}
+  a{color:inherit;text-decoration:none}
+}
 </style>
 </head>
 <body>
+
+<!-- TOP BAR -->
+<div id="top-bar">
+  <span class="tb-label">Viewing as:</span>
+  <select id="current-user" onchange="setUser(this.value)">
+    <option value="">— Select your name —</option>
+    <option>Muhammad Kazmi (MK)</option>
+    <option>Zuhair Zaidi</option>
+    <option>Lubna Zaidi</option>
+    <option>Syed Raza Hussain Zaidi</option>
+    <option>Naushad Noorani</option>
+    <option>Ali Jafri</option>
+    <option>Ali Akbar</option>
+    <option>Maroof Zaidi</option>
+    <option>Hassan Abidi</option>
+    <option>WLEC Administration</option>
+    <option>DAE Committee</option>
+  </select>
+  <span class="saved-badge" id="saved-badge">✓ Saved</span>
+  <button id="pdf-btn" onclick="exportPDF()">⬇ Export PDF</button>
+</div>
 
 <header>
   <div class="hdr-main">
@@ -225,7 +277,7 @@ footer a{color:var(--gold);text-decoration:none}
         <div class="oc-item">Sunday School already listed as a live foundation program at dareabbas.ca</div>
         <div class="oc-item">Responsible for faith direction, curriculum governance &amp; financial stewardship</div>
       </div>
-      <a class="oc-link" href="https://dareabbas.ca" target="_blank">↗ dareabbas.ca</a>
+      <a class="oc-link" href="https://dareabbas.ca" target="_blank">↗ dareabbas.ca · Milton, ON · +1 289 627 6921</a>
     </div>
     <div class="org-card">
       <div class="oc-head">
@@ -250,222 +302,288 @@ footer a{color:var(--gold);text-decoration:none}
   <div class="decisions">
     <h2>📋 Key Decisions Confirmed</h2>
     <div class="dec-grid">
-      <div class="dec-card"><b>Fee — Students</b><p>75/yr base · 5/yr (to confirm exact tier) · Exam: 0 one-time</p></div>
-      <div class="dec-card"><b>Fee — Parents / Teachers</b><p>Parents: Free · Teachers: TBD (to be determined)</p></div>
+      <div class="dec-card"><b>Fee — Students</b><p>$275/yr per student · Exam: $50 one-time</p></div>
+      <div class="dec-card"><b>Fee — Parents / Teachers</b><p>Parents: Free · Teachers: TBD</p></div>
       <div class="dec-card"><b>Schedule</b><p>Sundays · 10:30 a.m. – 2:30 p.m. · Drop-off 5 min early · Pickup 5 min before close</p></div>
-      <div class="dec-card"><b>Teacher Training</b><p>June 4, 2026 &amp; June 19, 2026 · Train-the-Trainer model · One full day each</p></div>
+      <div class="dec-card"><b>Teacher Training</b><p>June 4, 2026 &amp; June 19, 2026 · Train-the-Trainer · One full day each</p></div>
       <div class="dec-card"><b>Curriculum</b><p>NASIMCO-aligned · Quran, Islamic Studies, Values · Divided by age group &amp; level</p></div>
-      <div class="dec-card"><b>Probation Period</b><p>8 weeks · Evaluated on student engagement, parent satisfaction &amp; operational feasibility</p></div>
+      <div class="dec-card"><b>Probation</b><p>8 weeks · Evaluated on engagement, parent satisfaction &amp; operational feasibility</p></div>
     </div>
   </div>
 
   <div id="sc"></div>
-
 </div>
 
 <footer>
   Sunday Islamic School · A community partnership between
   <a href="https://dareabbas.ca" target="_blank">Dar-e-Abbas Foundation (Milton)</a> and
   <a href="https://www.worldlifeedu.ca" target="_blank">World Life Education Centre (Oakville)</a>
-  · Changes are saved automatically in your browser
+  · Changes are saved in your browser
 </footer>
 
 <script>
-const MBR = ["Unassigned","Muhammad Kazmi (MK)","Zuhair Zaidi","Lubna Zaidi","Syed Raza Hussain Zaidi","Naushad Noorani","Ali Jafri","Ali Akbar","Maroof Zaidi","Hassan Abidi","WLEC Administration","DAE Committee"];
-const STS = ["open","tbd","done","blocked"];
-const SL  = {open:"In Progress",tbd:"TBD",done:"Done",blocked:"Blocked"};
-const SC  = {open:"sb-open",tbd:"sb-tbd",done:"sb-done",blocked:"sb-blocked"};
+const MBR = ['Unassigned','Muhammad Kazmi (MK)','Zuhair Zaidi','Lubna Zaidi','Syed Raza Hussain Zaidi','Naushad Noorani','Ali Jafri','Ali Akbar','Maroof Zaidi','Hassan Abidi','WLEC Administration','DAE Committee'];
+const STS = ['open','tbd','done','blocked'];
+const SL  = {open:'In Progress',tbd:'TBD',done:'Done',blocked:'Blocked'};
+const SC  = {open:'sb-open',tbd:'sb-tbd',done:'sb-done',blocked:'sb-blocked'};
 const TAGS = {dae:['tag-dae','DAE'],wlec:['tag-wlec','WLEC'],jnt:['tag-jnt','Joint']};
 
 const SECS = [
-  {id:"s01",n:"1",t:"Opening Remarks & Vision",tag:"dae",tasks:[
-    {id:"ta01",t:"Deliver welcome and purpose of the meeting",o:"Muhammad Kazmi (MK)",s:"done"},
-    {id:"ta02",t:"Present full vision for the Sunday Islamic School initiative",o:"Muhammad Kazmi (MK)",s:"done"},
-    {id:"ta03",t:"Clarify DAE governance role vs WLEC operational role to all attendees",o:"Zuhair Zaidi",s:"open"},
+  {id:'s01',n:'1',t:'Opening Remarks & Vision',tag:'dae',tasks:[
+    {id:'ta01',t:'Deliver welcome and purpose of the meeting',o:'Muhammad Kazmi (MK)',s:'done'},
+    {id:'ta02',t:'Present full vision for the Sunday Islamic School initiative',o:'Muhammad Kazmi (MK)',s:'done'},
+    {id:'ta03',t:'Clarify DAE governance role vs WLEC operational role to all attendees',o:'Zuhair Zaidi',s:'open'},
   ]},
-  {id:"s02",n:"2",t:"Facilities — WLEC Campus (Cap. 150, 2655 Bristol Circle)",tag:"wlec",tasks:[
-    {id:"tb01",t:"Lead facilities tour — classrooms, common areas, washrooms",o:"Lubna Zaidi",s:"open"},
-    {id:"tb02",t:"Confirm safety and operational compliance for Sunday use",o:"WLEC Administration",s:"tbd"},
-    {id:"tb03",t:"Establish cleaning and maintenance schedule for Sunday sessions",o:"WLEC Administration",s:"tbd"},
-    {id:"tb04",t:"Confirm WLEC staff on-campus roster (min 1 staff at all times policy)",o:"Lubna Zaidi",s:"tbd"},
-    {id:"tb05",t:"Map and allocate classrooms for each age/learning group",o:"WLEC Administration",s:"tbd"},
+  {id:'s02',n:'2',t:'Facilities — WLEC Campus (Cap. 150, 2655 Bristol Circle)',tag:'wlec',tasks:[
+    {id:'tb01',t:'Lead facilities tour — classrooms, common areas, washrooms',o:'Lubna Zaidi',s:'open'},
+    {id:'tb02',t:'Confirm safety and operational compliance for Sunday use',o:'WLEC Administration',s:'tbd'},
+    {id:'tb03',t:'Establish cleaning and maintenance schedule for Sunday sessions',o:'WLEC Administration',s:'tbd'},
+    {id:'tb04',t:'Confirm WLEC staff on-campus roster (min 1 staff at all times policy)',o:'Lubna Zaidi',s:'tbd'},
+    {id:'tb05',t:'Map and allocate classrooms for each age and learning group',o:'WLEC Administration',s:'tbd'},
   ]},
-  {id:"s03",n:"3",t:"Program Launch — Phase 1 (30 Students · Age 9+)",tag:"jnt",tasks:[
-    {id:"tc01",t:"Finalize starting age (confirmed: 9+) and age group definitions",o:"DAE Committee",s:"open"},
-    {id:"tc02",t:"Build student registration form and required documentation package",o:"Unassigned",s:"open"},
-    {id:"tc03",t:"Define class structure, groupings and Sunday scheduling",o:"Unassigned",s:"open"},
-    {id:"tc04",t:"Open and manage enrollment intake to reach Phase 1 target of 30 students",o:"Unassigned",s:"open"},
-    {id:"tc05",t:"Register all names with WLEC facilities: Parents, Students, Supervisors, Teachers",o:"WLEC Administration",s:"open"},
+  {id:'s03',n:'3',t:'Program Launch — Phase 1 (30 Students · Age 9+)',tag:'jnt',tasks:[
+    {id:'tc01',t:'Finalize starting age (confirmed: 9+) and age group definitions',o:'DAE Committee',s:'open'},
+    {id:'tc02',t:'Build student registration form and required documentation package',o:'Unassigned',s:'open'},
+    {id:'tc03',t:'Define class structure, groupings and Sunday scheduling',o:'Unassigned',s:'open'},
+    {id:'tc04',t:'Open and manage enrollment intake to reach Phase 1 target of 30 students',o:'Unassigned',s:'open'},
+    {id:'tc05',t:'Register all names with WLEC facilities: Parents, Students, Supervisors, Teachers',o:'WLEC Administration',s:'open'},
   ]},
-  {id:"s04",n:"4",t:"Staffing & Supervision",tag:"jnt",tasks:[
-    {id:"td01",t:"Recruit and confirm volunteer teachers aligned with NASIMCO curriculum",o:"Syed Raza Hussain Zaidi",s:"tbd"},
-    {id:"td02",t:"Define roles and responsibilities for all staff, teachers and volunteers",o:"Muhammad Kazmi (MK)",s:"open"},
-    {id:"td03",t:"Assign on-campus supervision duties for each Sunday session",o:"WLEC Administration",s:"tbd"},
-    {id:"td04",t:"Determine and finalize teacher compensation/fee model (currently TBD)",o:"DAE Committee",s:"tbd"},
-    {id:"td05",t:"Establish teacher absence and substitute coverage protocol",o:"Unassigned",s:"tbd"},
+  {id:'s04',n:'4',t:'Staffing & Supervision',tag:'jnt',tasks:[
+    {id:'td01',t:'Recruit and confirm volunteer teachers aligned with NASIMCO curriculum',o:'Syed Raza Hussain Zaidi',s:'tbd'},
+    {id:'td02',t:'Define roles and responsibilities for all staff, teachers and volunteers',o:'Muhammad Kazmi (MK)',s:'open'},
+    {id:'td03',t:'Assign on-campus supervision duties for each Sunday session',o:'WLEC Administration',s:'tbd'},
+    {id:'td04',t:'Determine and finalize teacher compensation/fee model (currently TBD)',o:'DAE Committee',s:'tbd'},
+    {id:'td05',t:'Establish teacher absence and substitute coverage protocol',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s05",n:"5",t:"Timings & Arrival / Dismissal Protocol",tag:"wlec",tasks:[
-    {id:"te01",t:"Confirm and lock Sunday schedule: 10:30 a.m. – 2:30 p.m.",o:"Lubna Zaidi",s:"open"},
-    {id:"te02",t:"Communicate drop-off protocol to all parents (arrive 5 min before start)",o:"Unassigned",s:"open"},
-    {id:"te03",t:"Communicate pick-up protocol to all parents (enter campus 5 min before close)",o:"Unassigned",s:"open"},
-    {id:"te04",t:"Create and distribute arrival/dismissal information sheet to all families",o:"Unassigned",s:"tbd"},
+  {id:'s05',n:'5',t:'Timings & Arrival / Dismissal Protocol',tag:'wlec',tasks:[
+    {id:'te01',t:'Confirm and lock Sunday schedule: 10:30 a.m. – 2:30 p.m.',o:'Lubna Zaidi',s:'open'},
+    {id:'te02',t:'Communicate drop-off protocol to all parents (arrive 5 min before start)',o:'Unassigned',s:'open'},
+    {id:'te03',t:'Communicate pick-up protocol to all parents (enter campus 5 min before close)',o:'Unassigned',s:'open'},
+    {id:'te04',t:'Create and distribute arrival/dismissal information sheet to all families',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s06",n:"6",t:"Operations & Logistics",tag:"wlec",tasks:[
-    {id:"tf01",t:"Finalise weekly cleaning and maintenance schedule for Sunday use",o:"WLEC Administration",s:"tbd"},
-    {id:"tf02",t:"Create campus supervision plan covering full Sunday session hours",o:"WLEC Administration",s:"open"},
-    {id:"tf03",t:"Confirm resource requirements: textbooks, stationery, classroom setup",o:"Unassigned",s:"tbd"},
-    {id:"tf04",t:"Establish lost and found, first aid and emergency response procedures",o:"WLEC Administration",s:"tbd"},
+  {id:'s06',n:'6',t:'Operations & Logistics',tag:'wlec',tasks:[
+    {id:'tf01',t:'Finalise weekly cleaning and maintenance schedule for Sunday use',o:'WLEC Administration',s:'tbd'},
+    {id:'tf02',t:'Create campus supervision plan covering full Sunday session hours',o:'WLEC Administration',s:'open'},
+    {id:'tf03',t:'Confirm resource requirements: textbooks, stationery, classroom setup',o:'Unassigned',s:'tbd'},
+    {id:'tf04',t:'Establish first aid and emergency response procedures for campus',o:'WLEC Administration',s:'tbd'},
   ]},
-  {id:"s07",n:"7",t:"Academic Structure — NASIMCO Curriculum",tag:"dae",tasks:[
-    {id:"tg01",t:"Divide classes by age group (baseline 9+) and learning level",o:"Syed Raza Hussain Zaidi",s:"open"},
-    {id:"tg02",t:"Formally adopt NASIMCO curriculum: Quran, Islamic Studies, Values",o:"Syed Raza Hussain Zaidi",s:"open"},
-    {id:"tg03",t:"Complete full curriculum and lesson plan outline for Phase 1",o:"DAE Committee",s:"tbd"},
-    {id:"tg04",t:"Source and procure NASIMCO textbooks and student learning materials",o:"Unassigned",s:"tbd"},
-    {id:"tg05",t:"Design student progress tracking and reporting format for parents",o:"Unassigned",s:"tbd"},
+  {id:'s07',n:'7',t:'Academic Structure — NASIMCO Curriculum',tag:'dae',tasks:[
+    {id:'tg01',t:'Divide classes by age group (baseline 9+) and learning level',o:'Syed Raza Hussain Zaidi',s:'open'},
+    {id:'tg02',t:'Formally adopt NASIMCO curriculum: Quran, Islamic Studies, Values',o:'Syed Raza Hussain Zaidi',s:'open'},
+    {id:'tg03',t:'Complete full curriculum and lesson plan outline for Phase 1',o:'DAE Committee',s:'tbd'},
+    {id:'tg04',t:'Source and procure NASIMCO textbooks and student learning materials',o:'Unassigned',s:'tbd'},
+    {id:'tg05',t:'Design student progress tracking and reporting format for parents',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s08",n:"8",t:"Probation Period — 8 Weeks",tag:"jnt",tasks:[
-    {id:"th01",t:"Communicate 8-week probation framework to all parents and staff",o:"Muhammad Kazmi (MK)",s:"open"},
-    {id:"th02",t:"Define success criteria: student engagement, parent satisfaction, feasibility",o:"DAE Committee",s:"open"},
-    {id:"th03",t:"Build mid-point check-in mechanism at week 4",o:"Unassigned",s:"tbd"},
-    {id:"th04",t:"Schedule formal post-probation review meeting (week 9)",o:"Unassigned",s:"tbd"},
+  {id:'s08',n:'8',t:'Probation Period — 8 Weeks',tag:'jnt',tasks:[
+    {id:'th01',t:'Communicate 8-week probation framework to all parents and staff',o:'Muhammad Kazmi (MK)',s:'open'},
+    {id:'th02',t:'Define success criteria: student engagement, parent satisfaction, feasibility',o:'DAE Committee',s:'open'},
+    {id:'th03',t:'Build mid-point check-in mechanism at week 4',o:'Unassigned',s:'tbd'},
+    {id:'th04',t:'Schedule formal post-probation review meeting (week 9)',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s09",n:"9",t:"Financial Logistics & Sustainability",tag:"dae",tasks:[
-    {id:"ti01",t:"Resolve fee discrepancy: confirm whether student fee is 75/yr or 5/yr",o:"Zuhair Zaidi",s:"tbd"},
-    {id:"ti02",t:"Confirm one-time exam fee: 0 per student",o:"DAE Committee",s:"open"},
-    {id:"ti03",t:"Determine teacher compensation model (currently TBD)",o:"DAE Committee",s:"tbd"},
-    {id:"ti04",t:"Build full Phase 1 budget covering all income and operational expenses",o:"Unassigned",s:"tbd"},
-    {id:"ti05",t:"Set up financial tracking and reporting pipeline for DAE charity records",o:"DAE Committee",s:"tbd"},
-    {id:"ti06",t:"Define cost-sharing or contribution model between DAE and WLEC",o:"Zuhair Zaidi",s:"tbd"},
+  {id:'s09',n:'9',t:'Financial Logistics & Sustainability',tag:'dae',tasks:[
+    {id:'ti01',t:'Confirm student fee: $275/yr per student',o:'Zuhair Zaidi',s:'open'},
+    {id:'ti02',t:'Confirm one-time exam fee: $50 per student',o:'DAE Committee',s:'open'},
+    {id:'ti03',t:'Determine teacher compensation model (currently TBD)',o:'DAE Committee',s:'tbd'},
+    {id:'ti04',t:'Build full Phase 1 budget covering all income and operational expenses',o:'Unassigned',s:'tbd'},
+    {id:'ti05',t:'Set up financial tracking and reporting pipeline for DAE charity records',o:'DAE Committee',s:'tbd'},
+    {id:'ti06',t:'Define cost-sharing or contribution model between DAE and WLEC',o:'Zuhair Zaidi',s:'tbd'},
   ]},
-  {id:"s10",n:"10",t:"Phase 2 Expansion Planning",tag:"jnt",tasks:[
-    {id:"tj01",t:"Define Phase 1-to-Phase 2 transition trigger criteria",o:"Unassigned",s:"tbd"},
-    {id:"tj02",t:"Plan student capacity expansion beyond 30 (WLEC building cap: 150)",o:"WLEC Administration",s:"tbd"},
-    {id:"tj03",t:"Identify additional staffing and classroom needs for Phase 2",o:"Unassigned",s:"tbd"},
-    {id:"tj04",t:"Develop Phase 2 scaling strategy and timeline",o:"Unassigned",s:"tbd"},
+  {id:'s10',n:'10',t:'Phase 2 Expansion Planning',tag:'jnt',tasks:[
+    {id:'tj01',t:'Define Phase 1-to-Phase 2 transition trigger criteria',o:'Unassigned',s:'tbd'},
+    {id:'tj02',t:'Plan student capacity expansion beyond 30 (WLEC building cap: 150)',o:'WLEC Administration',s:'tbd'},
+    {id:'tj03',t:'Identify additional staffing and classroom needs for Phase 2',o:'Unassigned',s:'tbd'},
+    {id:'tj04',t:'Develop Phase 2 scaling strategy and timeline',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s11",n:"11",t:"Marketing & Community Outreach",tag:"dae",tasks:[
-    {id:"tk01",t:"Activate word-of-mouth outreach through all meeting attendees",o:"Unassigned",s:"open"},
-    {id:"tk02",t:"Design and print flyers and registration materials",o:"Unassigned",s:"open"},
-    {id:"tk03",t:"Make announcements at DAE Thursday/Friday programs and community events",o:"Syed Raza Hussain Zaidi",s:"open"},
-    {id:"tk04",t:"Leverage WLEC parent and local Oakville/Milton networks for outreach",o:"Lubna Zaidi",s:"tbd"},
-    {id:"tk05",t:"Update DAE website Sunday School page with enrolment details (dareabbas.ca/sunday-school)",o:"DAE Committee",s:"open"},
-    {id:"tk06",t:"Create WhatsApp/social media announcement for community groups",o:"Unassigned",s:"tbd"},
+  {id:'s11',n:'11',t:'Marketing & Community Outreach',tag:'dae',tasks:[
+    {id:'tk01',t:'Activate word-of-mouth outreach through all meeting attendees',o:'Unassigned',s:'open'},
+    {id:'tk02',t:'Design and print flyers and registration materials',o:'Unassigned',s:'open'},
+    {id:'tk03',t:'Make announcements at DAE Thursday/Friday programs and community events',o:'Syed Raza Hussain Zaidi',s:'open'},
+    {id:'tk04',t:'Leverage WLEC parent and local Oakville/Milton networks for outreach',o:'Lubna Zaidi',s:'tbd'},
+    {id:'tk05',t:'Update DAE website Sunday School page with enrolment details',o:'DAE Committee',s:'open'},
+    {id:'tk06',t:'Create WhatsApp/social media announcement for community groups',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s12",n:"12–13",t:"Open Discussion, Suggestions & AOB",tag:"jnt",tasks:[
-    {id:"tl01",t:"Facilitate structured feedback from all meeting attendees",o:"Unassigned",s:"tbd"},
-    {id:"tl02",t:"Document new ideas and collaborative inputs from the floor",o:"Unassigned",s:"tbd"},
-    {id:"tl03",t:"Record any additional matters raised under AOB",o:"Unassigned",s:"tbd"},
+  {id:'s12',n:'12–13',t:'Open Discussion, Suggestions & AOB',tag:'jnt',tasks:[
+    {id:'tl01',t:'Facilitate structured feedback from all meeting attendees',o:'Unassigned',s:'tbd'},
+    {id:'tl02',t:'Document new ideas and collaborative inputs from the floor',o:'Unassigned',s:'tbd'},
+    {id:'tl03',t:'Record any additional matters raised under AOB',o:'Unassigned',s:'tbd'},
   ]},
-  {id:"s13",n:"14",t:"Closing Remarks — Decisions, Actions & Next Steps",tag:"jnt",tasks:[
-    {id:"tm01",t:"Record and circulate full summary of all decisions made",o:"Muhammad Kazmi (MK)",s:"open"},
-    {id:"tm02",t:"Assign all action items with named owners and target dates",o:"Muhammad Kazmi (MK)",s:"open"},
-    {id:"tm03",t:"Schedule next DAE–WLEC planning/coordination meeting",o:"Unassigned",s:"tbd"},
-    {id:"tm04",t:"Confirm and book Teacher Training Day 1: June 4, 2026 (Train-the-Trainer)",o:"Syed Raza Hussain Zaidi",s:"open"},
-    {id:"tm05",t:"Confirm and book Teacher Training Day 2: June 19, 2026 (follow-up session)",o:"Syed Raza Hussain Zaidi",s:"open"},
-    {id:"tm06",t:"Set target launch date for first Sunday session",o:"Unassigned",s:"tbd"},
+  {id:'s13',n:'14',t:'Closing Remarks — Actions & Next Steps',tag:'jnt',tasks:[
+    {id:'tm01',t:'Record and circulate full summary of all decisions made',o:'Muhammad Kazmi (MK)',s:'open'},
+    {id:'tm02',t:'Assign all action items with named owners and target dates',o:'Muhammad Kazmi (MK)',s:'open'},
+    {id:'tm03',t:'Schedule next DAE–WLEC planning/coordination meeting',o:'Unassigned',s:'tbd'},
+    {id:'tm04',t:'Confirm and book Teacher Training Day 1: June 4, 2026 (Train-the-Trainer)',o:'Syed Raza Hussain Zaidi',s:'open'},
+    {id:'tm05',t:'Confirm and book Teacher Training Day 2: June 19, 2026 (follow-up session)',o:'Syed Raza Hussain Zaidi',s:'open'},
+    {id:'tm06',t:'Set target launch date for first Sunday session',o:'Unassigned',s:'tbd'},
   ]},
 ];
 
-function ld(){try{return JSON.parse(localStorage.getItem('sis3')||'null')}catch{return null}}
-function sv(d){localStorage.setItem('sis3',JSON.stringify(d))}
-let ST=ld()||{tasks:{},coms:{}};
-SECS.forEach(s=>s.tasks.forEach(t=>{if(!ST.tasks[t.id])ST.tasks[t.id]={txt:t.t,own:t.o,sts:t.s,chk:t.s==='done'}}));
+// ─── STORAGE ──────────────────────────────────────────────────────
+const STORE_KEY = 'sis_v3';
+function load() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || 'null'); } catch { return null; } }
+function save(d) {
+  localStorage.setItem(STORE_KEY, JSON.stringify(d));
+  const badge = document.getElementById('saved-badge');
+  badge.classList.add('show');
+  setTimeout(() => badge.classList.remove('show'), 1800);
+}
 
-function render(){
-  const c=document.getElementById('sc');c.innerHTML='';
-  SECS.forEach(s=>{
-    const done=s.tasks.filter(t=>(ST.tasks[t.id]||{}).chk).length;
-    const [tc,tl]=TAGS[s.tag];
-    const d=document.createElement('div');d.className='sec';
-    d.innerHTML='<div class="sec-hdr" onclick="tog(\''+s.id+'\')">'+
-      '<span class="sec-num">'+s.n+'.</span>'+
-      '<span class="sec-title">'+s.t+'<span class="sec-tag '+tc+'">'+tl+'</span></span>'+
-      '<span class="sec-badge">'+done+'/'+s.tasks.length+'</span>'+
-      '<span class="chev" id="cv-'+s.id+'">▼</span>'+
-      '</div>'+
-      '<div class="sec-body" id="sb-'+s.id+'">'+
-        '<div class="col-hdr"><span></span><span>Task</span><span>Owner</span><span>Status</span><span></span><span></span></div>'+
-        '<div class="tlist" id="tl-'+s.id+'"></div>'+
-        '<div class="addrow">'+
-          '<input type="text" placeholder="Add a task to this section..." id="ni-'+s.id+'" onkeydown="if(event.key===\'Enter\')at(\''+s.id+'\')">'+
-          '<button onclick="at(\''+s.id+'\')">+ Add</button>'+
-        '</div>'+
+let ST = load() || { tasks:{}, coms:{}, user:'' };
+// Seed defaults for any missing tasks
+SECS.forEach(s => s.tasks.forEach(t => {
+  if (!ST.tasks[t.id]) ST.tasks[t.id] = { txt:t.t, own:t.o, sts:t.s, chk:t.s==='done' };
+}));
+
+// ─── USER ─────────────────────────────────────────────────────────
+function setUser(v) {
+  ST.user = v;
+  save(ST);
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────
+function render() {
+  const cont = document.getElementById('sc');
+  const collapsed = {};
+  cont.querySelectorAll('.sec-body').forEach(el => {
+    if (el.classList.contains('collapsed')) collapsed[el.id] = true;
+  });
+  cont.innerHTML = '';
+  SECS.forEach(sec => {
+    const secTasks = sec.tasks;
+    const done = secTasks.filter(t => (ST.tasks[t.id]||{}).chk).length;
+    const [tc,tl] = TAGS[sec.tag];
+    const div = document.createElement('div');
+    div.className = 'sec';
+    div.innerHTML =
+      '<div class="sec-hdr" onclick="tog(\''+sec.id+'\')">' +
+        '<span class="sec-num">'+sec.n+'.</span>' +
+        '<span class="sec-title">'+sec.t+'<span class="sec-tag '+tc+'">'+tl+'</span></span>' +
+        '<span class="sec-badge">'+done+'/'+secTasks.length+'</span>' +
+        '<span class="chev" id="cv-'+sec.id+'">▼</span>' +
+      '</div>' +
+      '<div class="sec-body'+(collapsed['sb-'+sec.id]?' collapsed':'')+'" id="sb-'+sec.id+'">' +
+        '<div class="col-hdr"><span></span><span>Task</span><span>Owner</span><span>Status</span><span></span><span></span></div>' +
+        '<div class="tlist" id="tl-'+sec.id+'"></div>' +
+        '<div class="addrow">' +
+          '<input type="text" placeholder="Add a task…" id="ni-'+sec.id+'" onkeydown="if(event.key===\'Enter\')at(\''+sec.id+'\')">' +
+          '<button onclick="at(\''+sec.id+'\')">+ Add</button>' +
+        '</div>' +
       '</div>';
-    c.appendChild(d);
-    const tl2=d.querySelector('#tl-'+s.id);
-    s.tasks.forEach(t=>rt(tl2,t));
+    cont.appendChild(div);
+    const tl2 = div.querySelector('#tl-'+sec.id);
+    secTasks.forEach(t => renderTask(tl2, t));
   });
   updateStats();
 }
 
-function rt(cont,t){
-  const td=ST.tasks[t.id]||{txt:t.t,own:t.o,sts:t.s,chk:false};
-  const cms=ST.coms[t.id]||[];
-  const cur=td.chk?'done':td.sts;
-  const row=document.createElement('div');
-  row.id='r-'+t.id;row.className='trow'+(td.chk?' done-r':'');
-  row.innerHTML=
-    '<div class="chkbox'+(td.chk?' on':'')+'" onclick="tc(\''+t.id+'\')"></div>'+
-    '<div class="ttxt'+(td.chk?' strike':'')+'"><input type="text" value="'+td.txt.replace(/"/g,'&quot;')+'" onchange="ut(\''+t.id+'\',this.value)"></div>'+
-    '<div><select onchange="uo(\''+t.id+'\',this.value)">'+MBR.map(m=>'<option'+(td.own===m?' selected':'')+'>'+m+'</option>').join('')+'</select></div>'+
-    '<div><select onchange="us(\''+t.id+'\',this.value)">'+STS.map(s=>'<option value="'+s+'"'+(cur===s?' selected':'')+'>'+SL[s]+'</option>').join('')+'</select></div>'+
-    '<div><span class="sbadge '+SC[cur]+'">'+SL[cur]+'</span></div>'+
+function renderTask(cont, t) {
+  const td = ST.tasks[t.id] || {txt:t.t,own:t.o,sts:t.s,chk:false};
+  const cms = ST.coms[t.id] || [];
+  const cur = td.chk ? 'done' : td.sts;
+  const row = document.createElement('div');
+  row.id = 'r-'+t.id;
+  row.className = 'trow'+(td.chk?' done-r':'');
+  row.innerHTML =
+    '<div class="chkbox'+(td.chk?' on':'')+'" onclick="tc(\''+t.id+'\')"></div>' +
+    '<div class="ttxt'+(td.chk?' strike':'')+'"><input type="text" value="'+td.txt.replace(/"/g,'&quot;')+'" onblur="ut(\''+t.id+'\',this.value)" onkeydown="if(event.key===\'Enter\')this.blur()"></div>' +
+    '<div><select onchange="uo(\''+t.id+'\',this.value)">'+MBR.map(m=>'<option'+(td.own===m?' selected':'')+'>'+m+'</option>').join('')+'</select></div>' +
+    '<div><select onchange="us(\''+t.id+'\',this.value)">'+STS.map(s=>'<option value="'+s+'"'+(cur===s?' selected':'')+'>'+SL[s]+'</option>').join('')+'</select></div>' +
+    '<div><span class="sbadge '+SC[cur]+'">'+SL[cur]+'</span></div>' +
     '<div><button class="cbtn'+(cms.length?' hc':'')+'" onclick="tc2(\''+t.id+'\')" title="'+cms.length+' comment(s)">💬'+(cms.length?' '+cms.length:'')+'</button></div>';
   cont.appendChild(row);
-  const cp=document.createElement('div');
-  cp.className='cpanel';cp.id='cp-'+t.id;
-  cp.innerHTML='<h4>Comments · '+td.txt+'</h4>'+
+
+  const cp = document.createElement('div');
+  cp.className = 'cpanel'; cp.id = 'cp-'+t.id;
+  cp.innerHTML =
+    '<h4>Comments · '+td.txt+'</h4>' +
     '<div class="clist" id="cl-'+t.id+'">'+
-    (cms.length?cms.map(c=>'<div class="citem"><div class="cmeta"><strong>'+c.a+'</strong> · '+c.d+'</div>'+c.m+'</div>').join(''):'<div style="color:#a0906a;font-size:12px">No comments yet.</div>')+
+    (cms.length ? cms.map(c=>'<div class="citem"><div class="cmeta"><strong>'+c.a+'</strong> · '+c.d+'</div>'+c.m+'</div>').join('') : '<div style="color:#a0906a;font-size:12px">No comments yet.</div>')+
     '</div>'+
-    '<div class="cadd">'+
-      '<select id="ca-'+t.id+'">'+MBR.filter(m=>m!=='Unassigned').map(m=>'<option>'+m+'</option>').join('')+'</select>'+
-      '<input type="text" id="ci-'+t.id+'" placeholder="Write a comment..." onkeydown="if(event.key===\'Enter\')ac(\''+t.id+'\')">'+
-      '<button onclick="ac(\''+t.id+'\')">Post</button>'+
+    '<div class="cadd">' +
+      '<select id="ca-'+t.id+'">'+MBR.filter(m=>m!=='Unassigned').map(m=>'<option'+(ST.user===m?' selected':'')+'>'+m+'</option>').join('')+'</select>' +
+      '<input type="text" id="ci-'+t.id+'" placeholder="Write a comment and press Enter…" onkeydown="if(event.key===\'Enter\')ac(\''+t.id+'\')">' +
+      '<button onclick="ac(\''+t.id+'\')">Post</button>' +
     '</div>';
   cont.appendChild(cp);
 }
 
-function tog(id){
-  const b=document.getElementById('sb-'+id),v=document.getElementById('cv-'+id);
-  b.classList.toggle('collapsed');v.textContent=b.classList.contains('collapsed')?'▶':'▼';
+// ─── INTERACTIONS ─────────────────────────────────────────────────
+function tog(id) {
+  const b = document.getElementById('sb-'+id), v = document.getElementById('cv-'+id);
+  b.classList.toggle('collapsed');
+  v.textContent = b.classList.contains('collapsed') ? '▶' : '▼';
 }
-function tc(id){ST.tasks[id].chk=!ST.tasks[id].chk;if(ST.tasks[id].chk)ST.tasks[id].sts='done';sv(ST);render()}
-function ut(id,v){ST.tasks[id].txt=v;sv(ST)}
-function uo(id,v){ST.tasks[id].own=v;sv(ST)}
-function us(id,v){ST.tasks[id].sts=v;ST.tasks[id].chk=v==='done';sv(ST);render()}
-function tc2(id){document.getElementById('cp-'+id).classList.toggle('open')}
-function ac(id){
-  const a=document.getElementById('ca-'+id).value;
-  const m=document.getElementById('ci-'+id).value.trim();
-  if(!m)return;
-  if(!ST.coms[id])ST.coms[id]=[];
-  const now=new Date();
-  ST.coms[id].push({a,m,d:now.toLocaleDateString('en-CA',{month:'short',day:'numeric'})+' '+now.toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'})});
-  sv(ST);render();setTimeout(()=>document.getElementById('cp-'+id).classList.add('open'),40);
+function tc2(id) { document.getElementById('cp-'+id).classList.toggle('open'); }
+function tc(id) {
+  ST.tasks[id].chk = !ST.tasks[id].chk;
+  if (ST.tasks[id].chk) ST.tasks[id].sts = 'done';
+  save(ST); render();
 }
-function at(sid){
-  const inp=document.getElementById('ni-'+sid);
-  const txt=inp.value.trim();if(!txt)return;
-  const sec=SECS.find(s=>s.id===sid);
-  const nid='cx-'+Date.now();
-  sec.tasks.push({id:nid,t:txt,o:'Unassigned',s:'open'});
-  ST.tasks[nid]={txt,own:'Unassigned',sts:'open',chk:false};
-  sv(ST);inp.value='';render();
+function ut(id, val) {
+  if (ST.tasks[id].txt === val) return;
+  ST.tasks[id].txt = val; save(ST);
 }
-function updateStats(){
-  let op=0,dn=0,tb=0,tot=0;
-  Object.values(ST.tasks).forEach(t=>{
+function uo(id, val) { ST.tasks[id].own = val; save(ST); }
+function us(id, val) { ST.tasks[id].sts = val; ST.tasks[id].chk = val==='done'; save(ST); render(); }
+function ac(id) {
+  const a = document.getElementById('ca-'+id).value;
+  const m = document.getElementById('ci-'+id).value.trim();
+  if (!m) return;
+  if (!ST.coms[id]) ST.coms[id] = [];
+  const now = new Date();
+  ST.coms[id].push({ a, m, d: now.toLocaleDateString('en-CA',{month:'short',day:'numeric'})+' '+now.toLocaleTimeString('en-CA',{hour:'2-digit',minute:'2-digit'}) });
+  document.getElementById('ci-'+id).value = '';
+  save(ST); render();
+  setTimeout(() => { const cp = document.getElementById('cp-'+id); if (cp) cp.classList.add('open'); }, 40);
+}
+function at(sid) {
+  const inp = document.getElementById('ni-'+sid);
+  const txt = inp.value.trim(); if (!txt) return;
+  const sec = SECS.find(s => s.id===sid);
+  const nid = 'cx-'+Date.now();
+  sec.tasks.push({id:nid, t:txt, o:'Unassigned', s:'open'});
+  ST.tasks[nid] = {txt, own:'Unassigned', sts:'open', chk:false};
+  save(ST); inp.value=''; render();
+}
+
+// ─── STATS ────────────────────────────────────────────────────────
+function updateStats() {
+  let op=0, dn=0, tb=0, tot=0;
+  Object.values(ST.tasks).forEach(t => {
     tot++;
-    if(t.chk||t.sts==='done')dn++;
-    else if(t.sts==='tbd'||t.sts==='blocked')tb++;
+    if (t.chk || t.sts==='done') dn++;
+    else if (t.sts==='tbd' || t.sts==='blocked') tb++;
     else op++;
   });
-  document.getElementById('sn-open').textContent=op;
-  document.getElementById('sn-done').textContent=dn;
-  document.getElementById('sn-tbd').textContent=tb;
-  document.getElementById('sn-total').textContent=tot;
+  document.getElementById('sn-open').textContent = op;
+  document.getElementById('sn-done').textContent = dn;
+  document.getElementById('sn-tbd').textContent = tb;
+  document.getElementById('sn-total').textContent = tot;
 }
+
+// ─── PDF EXPORT ───────────────────────────────────────────────────
+function exportPDF() {
+  const bodies = document.querySelectorAll('.sec-body');
+  const chevrons = document.querySelectorAll('.chev');
+  const wasCollapsed = [];
+  bodies.forEach((b,i) => {
+    wasCollapsed[i] = b.classList.contains('collapsed');
+    b.classList.remove('collapsed');
+    if (chevrons[i]) chevrons[i].textContent = '▼';
+  });
+  document.querySelectorAll('.cpanel.open').forEach(p => p.classList.remove('open'));
+  const origTitle = document.title;
+  document.title = 'Sunday Islamic School — Planning Dashboard — ' + new Date().toLocaleDateString('en-CA');
+  window.print();
+  setTimeout(() => {
+    document.title = origTitle;
+    bodies.forEach((b,i) => {
+      if (wasCollapsed[i]) { b.classList.add('collapsed'); if (chevrons[i]) chevrons[i].textContent = '▶'; }
+    });
+  }, 1500);
+}
+
+// ─── BOOT ─────────────────────────────────────────────────────────
+if (ST.user) document.getElementById('current-user').value = ST.user;
 render();
 </script>
 </body>
